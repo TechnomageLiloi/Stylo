@@ -1,0 +1,14 @@
+{
+    "name": "anton-moskalenko/stylo",
+    "keywords": [
+    ],
+    "minimum-stability": "dev",
+    "require": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "Liloi\\Stylo\\": "Source"
+        }
+    }
+}
