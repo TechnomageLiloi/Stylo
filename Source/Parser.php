@@ -21,7 +21,7 @@ class Parser
                 continue;
             }
 
-            $row = preg_replace('/\[(.*?)\]\{(.*?)\}/', "<a href='/wiki/$2'>$1</a>", $row);
+            $row = preg_replace('/\[(.*?)\]\{(.*?)\}/', "<a class='button-trigger' href='javascript:void(0)' data-key='$2'>$1</a>", $row);
             $row = preg_replace('/\!\[(.*?)\]\((.*?)\)/', "<img src='$2' alt='$1' />", $row);
             $row = preg_replace('/\[(.*?)\]\((.*?)\)/', "<a href='$2' target='_blank'>$1</a>", $row);
             $row = preg_replace('/\*\*(.*?)\*\]/', "<b>$1</b>", $row);
