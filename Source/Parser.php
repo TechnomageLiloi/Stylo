@@ -23,8 +23,8 @@ class Parser
 
             $row = preg_replace('/\[(.*?)\]\{(.*?)\}/', "<a class='button-trigger' href='javascript:void(0)' data-key='$2'>$1</a>", $row);
             $row = preg_replace('/\!\[(.*?)\]\((.*?)\)/', "<img src='$2' alt='$1' />", $row);
-            $row = preg_replace('/\[(.*?)\]\((.*?)\)/', "<a href='$2' target='_blank'>$1</a>", $row);
-            $row = preg_replace('/\*\*(.*?)\*\]/', "<b>$1</b>", $row);
+            $row = preg_replace('/\[(.*?)\]\((.*?)\)/', "<a href='$2'>$1</a>", $row);
+            $row = preg_replace('/\*\*(.*?)\*\*/', "<b>$1</b>", $row);
             $row = preg_replace('/__(.*?)__/', "<i>$1</i>", $row);
             $row = preg_replace('/\%\%(.*?)\%\%/', "<s>$1</s>", $row);
             $row = preg_replace('/\^\^(.*?)\^\^/', "<u>$1</u>", $row);
