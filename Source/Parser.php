@@ -33,11 +33,11 @@ class Parser
 
             if(isset($row[0]) && $row[0] === '#')
             {
-                $row = preg_replace('/^#####(.*)/', "<h5>$1</h5>", $row);
-                $row = preg_replace('/^####(.*)/', "<h4>$1</h4>", $row);
-                $row = preg_replace('/^###(.*)/', "<h3>$1</h3>", $row);
-                $row = preg_replace('/^##(.*)/', "<h2>$1</h2>", $row);
-                $row = preg_replace('/^#(.*)/', "<h1>$1</h1>", $row);
+                $row = preg_replace('/^##### (.*)/', "<h5>$1</h5>", $row);
+                $row = preg_replace('/^#### (.*)/', "<h4>$1</h4>", $row);
+                $row = preg_replace('/^### (.*)/', "<h3>$1</h3>", $row);
+                $row = preg_replace('/^## (.*)/', "<h2>$1</h2>", $row);
+                $row = preg_replace('/^# (.*)/', "<h1>$1</h1>", $row);
                 $output[] = $row;
                 continue;
             }
