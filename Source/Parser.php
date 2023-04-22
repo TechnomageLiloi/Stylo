@@ -7,10 +7,8 @@ namespace Liloi\Stylo;
  */
 class Parser
 {
-    // @todo: add tests
     private static function parse(array $input): array
     {
-        // @todo: move parser to separate project [simple-parser]
         $output = [];
 
         foreach ($input as $row)
@@ -18,6 +16,20 @@ class Parser
             if($row === '---')
             {
                 $output[] = '<hr/>';
+                continue;
+            }
+
+            if(strpos($row, '//') === 0)
+            {
+                continue;
+            }
+
+            // @todo: '[[[' block must be extracted in separate file.
+            $row = preg_replace('/\[\[\[\/\]\]\]/', "</div>", $row);
+            $row = preg_replace('/\[\[\[(.*?)\]\]\]/', "<div id='$1' class='stylo-block'>", $row);
+            if(strpos($row, '<div') === 0 || strpos($row, '</div') === 0)
+            {
+                $output[] = $row;
                 continue;
             }
 
@@ -48,7 +60,6 @@ class Parser
         return $output;
     }
 
-    // @todo: add tests
     public static function parseString($input)
     {
         return implode("\n", self::parse(explode("\n", $input)));
