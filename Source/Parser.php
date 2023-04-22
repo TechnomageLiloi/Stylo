@@ -27,7 +27,7 @@ class Parser
             }
 
             $row = preg_replace('/\[\[\[\/\]\]\]/', "</div>", $row);
-            $row = preg_replace('/\[\[\[(.*?)\]\]\]/', "<div id='$1'>", $row);
+            $row = preg_replace('/\[\[\[(.*?)\]\]\]/', "<div id='$1' class='stylo-block'>", $row);
             if(strpos($row, '<div') === 0 || strpos($row, '</div') === 0)
             {
                 $output[] = $row;
