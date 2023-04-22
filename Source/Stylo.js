@@ -1,11 +1,15 @@
 /**
  * Stylo (client side).
+ *
  * @type {{}}
  */
 const Stylo = {
     Trigger: {
         List: [],
 
+        /**
+         * Stylo trigger initialize.
+         */
         initialize: function ()
         {
             $('.stylo .button-trigger').click(function () {
@@ -16,6 +20,8 @@ const Stylo = {
         },
 
         /**
+         * Add trigger function in List.
+         *
          * f(data:string, target:jQuery)
          */
         add: function (f)

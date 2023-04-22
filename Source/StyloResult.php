@@ -9,6 +9,11 @@ namespace Liloi\Stylo;
  */
 class StyloResult
 {
+    /**
+     * Output as HTML.
+     *
+     * @var string|null
+     */
     private ?string $output = null;
 
     // @todo [TEST] What magic methods of the PHP you know?
@@ -17,8 +22,13 @@ class StyloResult
         $this->output = $output;
     }
 
+    /**
+     * Get output as HTML.
+     *
+     * @return string
+     */
     public function getHypertext(): string
     {
-        return $this->output;
+        return sprintf("<div class='stylo'>%s</div>", $this->output);
     }
 }
