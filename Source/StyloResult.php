@@ -3,7 +3,7 @@
 namespace Liloi\Stylo;
 
 /**
- * Stylo result.
+ * Stylo result object.
  *
  * @todo: Cover by tests
  */
