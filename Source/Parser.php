@@ -21,6 +21,11 @@ class Parser
                 continue;
             }
 
+            if(strpos($row, '//') === 0)
+            {
+                continue;
+            }
+
             $row = preg_replace('/\[(.*?)\]\{(.*?)\}/', "<a class='button-trigger' href='javascript:void(0)' data-key='$2'>$1</a>", $row);
             $row = preg_replace('/\!\[(.*?)\]\((.*?)\)/', "<img src='$2' alt='$1' />", $row);
             $row = preg_replace('/\[(.*?)\]\((.*?)\)/', "<a href='$2'>$1</a>", $row);
