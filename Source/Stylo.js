@@ -3,5 +3,5 @@
  * @type {{}}
  */
 const Stylo = {
-
+    
 };
