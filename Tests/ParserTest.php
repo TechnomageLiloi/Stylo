@@ -3,7 +3,6 @@
 namespace Liloi\Stylo;
 
 use PHPUnit\Framework\TestCase;
-use Liloi\Stylo\Parser;
 
 /**
  * Check {@link Parser} object.
@@ -15,6 +14,7 @@ class ParserTest extends TestCase
      */
     public function testParseString(): void
     {
+        $this->assertEquals("<div id='test'><script>Test.Test();</script></div>", Parser::parseString('[[test:Test.Test()]]'));
         $this->assertEquals("<div><script>Test.Test();</script></div>", Parser::parseString('[[Test.Test()]]'));
 
         $this->assertEquals("<div id='test-test-test' class='stylo-block'>", Parser::parseString('[[[test-test-test]]]'));

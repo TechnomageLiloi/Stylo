@@ -27,6 +27,7 @@ class Parser
             // @todo: '[[[' block must be extracted in separate file.
             $row = preg_replace('/\[\[\[\/\]\]\]/', "</div>", $row);
             $row = preg_replace('/\[\[\[(.*?)\]\]\]/', "<div id='$1' class='stylo-block'>", $row);
+            $row = preg_replace('/\[\[(.*?):(.*?)\]\]/', "<div id='$1'><script>$2;</script></div>", $row);
             $row = preg_replace('/\[\[(.*?)\]\]/', "<div><script>$1;</script></div>", $row);
 
             if(strpos($row, '<div') === 0 || strpos($row, '</div') === 0)
