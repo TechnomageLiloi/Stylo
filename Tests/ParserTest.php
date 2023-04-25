@@ -14,12 +14,10 @@ class ParserTest extends TestCase
      */
     public function testParseString(): void
     {
-        $this->assertEquals("<div id='test'><script>Test.Test();</script></div>", Parser::parseString('[[test:Test.Test()]]'));
-        $this->assertEquals("<div><script>Test.Test();</script></div>", Parser::parseString('[[Test.Test()]]'));
-
+        $this->assertEquals("<div id='test'><script>Test.Test(33);</script></div>", Parser::parseString('[[test:Test.Test(33)]]'));
+        $this->assertEquals("<div><script>Test.Test(33);</script></div>", Parser::parseString('[[Test.Test(33)]]'));
         $this->assertEquals("<div id='test-test-test' class='stylo-block'>", Parser::parseString('[[[test-test-test]]]'));
         $this->assertEquals("</div>", Parser::parseString('[[[/]]]'));
-
         $this->assertEquals("", Parser::parseString('// Test'));
         $this->assertEquals("<hr/>", Parser::parseString('---'));
         $this->assertEquals("<p><input type='checkbox' checked='checked' readonly> test</p>", Parser::parseString('-[x] test'));
