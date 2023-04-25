@@ -15,6 +15,8 @@ class ParserTest extends TestCase
      */
     public function testParseString(): void
     {
+        $this->assertEquals("<div><script>Test.Test();</script></div>", Parser::parseString('[[Test.Test()]]'));
+
         $this->assertEquals("<div id='test-test-test' class='stylo-block'>", Parser::parseString('[[[test-test-test]]]'));
         $this->assertEquals("</div>", Parser::parseString('[[[/]]]'));
 
