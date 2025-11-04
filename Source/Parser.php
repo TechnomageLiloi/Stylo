@@ -47,6 +47,7 @@ class Parser
 
             if(isset($row[0]) && $row[0] === '[')
             {
+                $row = preg_replace('/\[#(.*)\.(.*)\]/', "<div id='$1' class='$2'>", $row);
                 $row = preg_replace('/\[#(.*)\]/', "<div id='$1'>", $row);
                 $row = preg_replace('/\[\/\]/', "</div>", $row);
                 $output[] = $row;
