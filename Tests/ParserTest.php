@@ -14,6 +14,7 @@ class ParserTest extends TestCase
      */
     public function testParseString(): void
     {
+        $this->assertEquals("</div>", Parser::parseString('[/]'));
         $this->assertEquals("", Parser::parseString('// Test'));
         $this->assertEquals("<hr/>", Parser::parseString('---'));
         $this->assertEquals("<p><input type='checkbox' checked='checked' readonly> test</p>", Parser::parseString('-[x] test'));

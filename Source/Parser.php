@@ -45,6 +45,13 @@ class Parser
                 continue;
             }
 
+            if(isset($row[0]) && $row[0] === '[')
+            {
+                $row = preg_replace('/\[\/\]/', "</div>", $row);
+                $output[] = $row;
+                continue;
+            }
+
             $output[] = '<p>' . $row . '</p>';
         }
 
