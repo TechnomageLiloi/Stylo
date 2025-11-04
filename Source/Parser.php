@@ -24,18 +24,6 @@ class Parser
                 continue;
             }
 
-            // @todo: '[[[' block must be extracted in separate file.
-            $row = preg_replace('/\[\[\[\/\]\]\]/', "</div>", $row);
-            $row = preg_replace('/\[\[\[(.*?)\]\]\]/', "<div id='$1' class='stylo-block'>", $row);
-            $row = preg_replace('/\[\[(.*?):(.*?)\]\]/', "<div id='$1'><script>$2;</script></div>", $row);
-            $row = preg_replace('/\[\[(.*?)\]\]/', "<div><script>$1;</script></div>", $row);
-
-            if(strpos($row, '<div') === 0 || strpos($row, '</div') === 0)
-            {
-                $output[] = $row;
-                continue;
-            }
-
             $row = preg_replace('/\[(.*?)\]\{(.*?)\}/', "<a class='button-trigger' href='javascript:void(0)' data-key='$2'>$1</a>", $row);
             $row = preg_replace('/\!\[(.*?)\]\((.*?)\)/', "<img src='$2' alt='$1' />", $row);
             $row = preg_replace('/\[(.*?)\]\((.*?)\)/', "<a href='$2'>$1</a>", $row);
